@@ -1,0 +1,13 @@
+plugin: gcp_compute
+projects:
+          # - project id
+auth_kind: serviceaccount
+service_account_file: ~/ansibe/service-account.json
+keyed_groups:
+  - key: labels
+    prefix: label
+  - key: zone
+    prefix: zone
+groups:
+  # to group the  instaces on the basic of labels 
+  remote: "'ansibledyanmic' in (labels|list)"
